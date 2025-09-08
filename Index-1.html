@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nemal Steel Industries - Premium SS Screw Manufacturing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 23, 42, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo-Image {
+            height: 60px;
+            width: auto;
+            
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #fbbf24;
+        }
+
+        /* Hero Section - Completely Clean */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse 800px 600px at 20% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse 600px 400px at 80% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 50%);
+            animation: subtleGlow 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes subtleGlow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-text .highlight {
+            color: #fbbf24;
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            color: #0f172a;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.6);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .screw-visual {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screw-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+            animation: floatImage 3s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #0f172a;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0f172a;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 0;
+            background: #fff;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+        }
+
+        .product-icon {
+            width: fit-content;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-icon img {
+            transform: scale(1.1);
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .product-card p {
+            color: #666;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .product-features {
+            margin-top: 1.5rem;
+        }
+
+        .product-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-features li {
+            padding: 0.3rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        /* Quality Section */
+        .quality {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #fff;
+        }
+
+        .quality-content {
+            text-align: center;
+        }
+
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .quality-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .quality-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .quality-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fbbf24;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: #0f172a;
+            color: #fff;
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #fbbf24;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #fbbf24;
+            width: 30px;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0f172a;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #0f172a, #1e293b);
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(15, 23, 42, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #fbbf24;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .screw-visual {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 1s ease forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <img src="Images/Nemal_Steel-Logo-1-HD-removebg-preview.png"
+                         alt="Stainless Steel Screws" class="logo-Image">
+                         Nemal Steel Industries
+                </a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#quality">Quality</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text slide-in-left">
+                <h1>Premium <span class="highlight">SS Screws</span><br>Manufacturing Excellence</h1>
+                <p>Leading manufacturer of high-quality stainless steel screws, delivering precision engineering and superior durability for industrial applications worldwide.</p>
+                <a href="#contact" class="cta-button">Get Quote Today</a>
+            </div>
+            <div class="hero-image slide-in-right">
+                <div class="screw-visual">
+                    <img src="Images/Custome-Fastner.jpeg" 
+                         alt="Stainless Steel Screws" class="screw-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Nemal Steel Industries</h2>
+            <div class="about-content">
+                <div class="about-text slide-in-left">
+                    <h3>Precision Engineering Since Inception</h3>
+                    <p>Nemal Steel Industries stands as a premier manufacturer of high-grade stainless steel screws, serving diverse industries with uncompromising quality and precision. Our state-of-the-art manufacturing facility combines advanced technology with skilled craftsmanship.</p>
+                    <p>We specialize in producing a comprehensive range of SS screws that meet international standards, ensuring optimal performance in critical applications across automotive, construction, marine, and industrial sectors.</p>
+                </div>
+                <div class="stats slide-in-right">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50M+</span>
+                        <div class="stat-label">Screws Produced</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <div class="stat-label">Quality Assurance</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Product Range</h2>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <div class="product-icon">
+                        <img src="Images/All-Machine Screw-pica.png" 
+                             alt="Machine Screws">
+                    </div>
+                    <h3>Machine Screws</h3>
+                    <p>Precision-engineered machine screws available in various grades of stainless steel for industrial machinery and equipment.</p>
+                    <div class="product-features">
+                        <ul>
+                            <li>Grade 304 & 316 SS</li>
+                            <li>M3 to M24 sizes</li>
+                            <li>Phillips & Hex heads</li>
+                            <li>Custom threading</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-icon">
+                        <img src="Images/CSK&PAN-ST-Screw-pica.png" 
+                             alt="Self-Tapping Screws">
+                    </div>
+                    <h3>Self-Tapping Screws</h3>
+                    <p>High-strength self-tapping screws designed for sheet metal, plastic, and composite material applications.</p>
+                    <div class="product-features">
+                        <ul>
+                            <li>Corrosion resistant</li>
+                            <li>Sharp cutting threads</li>
+                            <li>Various head styles</li>
+                            <li>Custom lengths</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-icon">
+                        <img src="Images/ss-csk-allen-bolt-1000x1000-pica.png" 
+                             alt="Cap Head Screws">
+                    </div>
+                    <h3>Allen CSK Screws</h3>
+                    <p>llen CSK Screws providing high tensile strength and clean appearance for critical applications.</p>
+                    <div class="product-features">
+                        <ul>
+                            <li>High tensile strength</li>
+                            <li>Smooth finish</li>
+                            <li>Allen key drive</li>
+                            <li>Metric & Imperial</li>
+                        </ul>
+                    </div>
+                </div>
+              
+                <div class="product-card fade-in">
+                    <div class="product-icon">
+                        <img src="Images/Custome-Fastner.jpeg" 
+                             alt="Custom Fasteners">
+                    </div>
+                    <h3>Custom Fasteners</h3>
+                    <p>Specialized custom-designed fasteners manufactured to your exact specifications and requirements.</p>
+                    <div class="product-features">
+                        <ul>
+                            <li>Custom specifications</li>
+                            <li>Prototype development</li>
+                            <li>Special materials</li>
+                            <li>Technical support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <div class="product-icon">
+                        <img src="Images/Box Packaging Photos.PNG" 
+                             alt="Custom Fasteners">
+                    </div>
+                    <h3>Premium Box packaging</h3>
+                    <p>Premium SS Screw Packaging is designed to reflect the same durability, precision, and trust that our products deliver.</p>
+                    <div class="product-features">
+                        <ul>
+                            <li>100 pcs Premium Box Packaging</li>
+                            <li>Moisture & Dust Resistant Protection</li>
+                            <li>Embossed Branding with Matte Finish</li>
+                          </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section class="quality" id="quality">
+        <div class="container">
+            <div class="quality-content">
+                <h2 class="section-title fade-in" style="color: #fff;">Quality & Certifications</h2>
+                <p class="fade-in" style="font-size: 1.2rem; margin-bottom: 3rem;">Our commitment to excellence is reflected in our rigorous quality control processes and industry certifications.</p>
+                <div class="quality-grid">
+                    <div class="quality-item fade-in">
+                        <i>🏆</i>
+                        <h3>ISO 9001:2015</h3>
+                        <p>Certified quality management systems ensuring consistent product excellence and customer satisfaction.</p>
+                    </div>
+                    <div class="quality-item fade-in">
+                        <i>🔬</i>
+                        <h3>Material Testing</h3>
+                        <p>Comprehensive material testing including tensile strength, corrosion resistance, and dimensional accuracy.</p>
+                    </div>
+                    <div class="quality-item fade-in">
+                        <i>⚡</i>
+                        <h3>Advanced Manufacturing</h3>
+                        <p>State-of-the-art CNC machinery and automated production lines for precision and consistency.</p>
+                    </div>
+                    <div class="quality-item fade-in">
+                        <i>✅</i>
+                        <h3>100% Inspection</h3>
+                        <p>Every product undergoes thorough inspection before packaging to ensure zero-defect delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info slide-in-left">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i>📍</i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Industrial Area, Mansi-Industries-Shekhpar <br>Surendranagar, Gujarat, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 9727419535 <br>+91 97377 18128</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i>✉️</i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>nemalsteelind@gmail.com </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i>🕒</i>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Sunday - Fryday: 9:00 AM - 6:00 PM<br>Saturday : Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form slide-in-right">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Please describe your requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
